@@ -1,5 +1,5 @@
 const express = require('express')
-const { createEntry, getEntries, getEntry } = require('../controllers/entryControllers')
+const { createEntry, getEntries, getEntry, deleteEntry, updateEntry } = require('../controllers/entryControllers')
 
 const router = express.Router()
 
@@ -9,12 +9,8 @@ router.get('/:id', getEntry)
 
 router.post('/', createEntry)
 
-router.delete('/:id', (req, res) => {
-    res.json({ message: 'DELETE a post'})
-})
+router.delete('/:id', deleteEntry)
 
-router.patch('/:id', (req, res) => {
-    res.json({ message: 'UPDATE a post' })
-})
+router.patch('/:id', updateEntry)
 
 module.exports = router

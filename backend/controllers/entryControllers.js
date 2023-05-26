@@ -36,11 +36,31 @@ const createEntry = async (req, res) => {
 }
 
 // delete an entry
-
+const deleteEntry = async (req, res) => {
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'Entry not found' })
+    }
+    const entry = await Entry.findOneAndDelete({ _id: id })
+    if (!entry) {
+        return res.status(400).json({ error: 'Entry not found' })
+    }
+    res.status(200).json(entry)
+}
 
 // update an entry
+const updateEntry = async (req, res) => {
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'Entry not found' })
+    }
+    const entry = await Entry.findOneAndUpdate({_id: id}, { ...req.body })
+    if (!entry) {
+        return res.status(400).json({ error: 'Entry not found' })
+    }
+    res.status(200).json(entry)
+}
 
 
 
-
-module.exports = { getEntries, getEntry, createEntry }
+module.exports = { getEntries, getEntry, createEntry, deleteEntry, updateEntry }
