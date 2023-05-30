@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 //components
 import EntryDetails from "../EntryDetails"
 import { CurrentDate } from "../CurrentDate"
+import EntryForm from "../EntryForm"
 
 export default function Home() {
     const [ entries, setEntries ] = useState(null)
@@ -16,12 +17,15 @@ export default function Home() {
         fetchEntries()
     }, [])
     return ( 
-        <div className="home">
+        <div>
             <h1>Welcome</h1>
             <h4>Current Date: <CurrentDate /></h4>
-            <div className="entries">
+            <EntryForm />
+            <div className="p-2.5">
                 {entries && entries.map((entry) => (
+                    <div className="p-2.5">
                     <EntryDetails key={entry._id} entry={entry} />
+                    </div>
                 ))}
             </div>
         </div>
