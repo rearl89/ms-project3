@@ -18,15 +18,23 @@ export default function Home() {
     }, [])
     return ( 
         <div>
-            <h1>Welcome</h1>
-            <h4>Current Date: <CurrentDate /></h4>
-            <EntryForm />
-            <div className="p-2.5">
-                {entries && entries.map((entry) => (
-                    <div className="p-2.5">
-                    <EntryDetails key={entry._id} entry={entry} />
+            <h1>Welcome to your personal journal</h1>
+            <div className="border-2">
+                <h4>Current Date: <CurrentDate /></h4>
+            </div>
+            <div className="">
+                <div className="flex">
+                    <div className="pl-2.5 pr-2.5 pb-2.5">
+                        {entries && entries.map((entry) => (
+                            <div className="p-2.5">
+                            <EntryDetails key={entry._id} entry={entry} />
+                            </div>
+                        ))}
                     </div>
-                ))}
+                    <div className="p-2.5"> 
+                        <EntryForm />
+                    </div>
+                </div>
             </div>
         </div>
     )

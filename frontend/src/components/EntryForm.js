@@ -25,16 +25,16 @@ export default function EntryForm() {
     }
 
     return (
-        <form className="create" onSubmit={handleSubmit}>
+        <form className="grid bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg p-2.5" onSubmit={handleSubmit}>
             <h3>Add a new journal entry</h3>
 
             <label>Title:</label>
-            <input type='text' onChange={(e) => setTitle(e.target.value)} value={title} />
+            <input type='text' className="rounded" onChange={(e) => setTitle(e.target.value)} value={title} />
 
             <label>Entry:</label>
-            <input type='text' onChange={(e) => setMessage(e.target.value)} value={message} />
+            <textarea rows="10" cols="120" className="rounded" onChange={(e) => setMessage(e.target.value)} value={message} />
 
-            <button>Submit Entry</button>
+            <button className="text-white rounded bg-indigo-500 mt-2  hover:bg-indigo-400">Submit Entry</button>
         </form>
     )
 }
