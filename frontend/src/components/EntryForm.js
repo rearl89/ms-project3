@@ -1,10 +1,10 @@
 import { useState } from "react"
+import { useEntriesContext } from "../hooks/useEntriesContext"
 
 
 export default function EntryForm() {
-    function refreshPage() {
-        window.location.reload(false);
-    }
+    const { dispatch } = useEntriesContext()
+
     const [title, setTitle] = useState('')
     const [message, setMessage] = useState('')
     const [error, setError] = useState(null)
@@ -26,6 +26,7 @@ export default function EntryForm() {
             setMessage('')
             setError(null)
             console.log('new entry added')
+            dispatch({type: 'CREATE_ENTRY', payload: json})
         }
     }
 
@@ -39,7 +40,7 @@ export default function EntryForm() {
             <label>Entry:</label>
             <textarea rows="10" cols="120" className="rounded" onChange={(e) => setMessage(e.target.value)} value={message} />
 
-            <button className="text-white rounded bg-indigo-500 mt-2  hover:bg-indigo-400" onClick={refreshPage}>Submit Entry</button>
+            <button className="text-white rounded bg-indigo-500 mt-2 hover:bg-indigo-400">Submit Entry</button>
             {error && <div className="error">{error}</div>}
         </form>
     )

@@ -26,6 +26,18 @@ const getEntry = async (req, res) => {
 const createEntry = async (req, res) => {
     const { title, message } = req.body
 
+    let emptyFields = []
+
+    if(!title) {
+        emptyFields.push('title')
+    }
+    if(!message) {
+        emptyFields.push('message')
+    }
+    if(emptyFields.length>0) {
+        return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
+    }
+
     // adds entry to DB
     try {
         const entry = await Entry.create({ title, message })

@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
+import { useEntriesContext } from "../../hooks/useEntriesContext"
 //components
 import EntryDetails from "../EntryDetails"
 import { CurrentDate } from "../CurrentDate"
 import EntryForm from "../EntryForm"
 
 export default function Home() {
-    const [ entries, setEntries ] = useState(null)
+    const {entries, dispatch} = useEntriesContext()
+
     useEffect(() => {
         async function fetchEntries() {
             const response = await fetch('/entries') 
             const json = await response.json()
+
             if (response.ok) {
-                setEntries(json)
+                dispatch({type: 'SET_ENTRIES', payload: json})
             }
         }
         fetchEntries()
