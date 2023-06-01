@@ -31,14 +31,14 @@ export default function EntryForm() {
     }
 
     return (
-        <form className="grid bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg p-2.5" onSubmit={handleSubmit}>
-            <h3 className="font-bold">Add a new journal entry</h3>
+        <form className="grid bg-gray-200 rounded overflow-hidden shadow-lg p-2.5 mr-2.5" onSubmit={handleSubmit}>
+            <h3 className="font-bold">Add a new entry</h3>
 
-            <label>Title:</label>
-            <input type='text' className="rounded" onChange={(e) => setTitle(e.target.value)} value={title} />
+            <label className="flex">Title:</label>
+            <input placeholder="Ex. Great weekend trip to..." type='text' className="rounded" onChange={(e) => setTitle(e.target.value)} value={title} />
 
-            <label>Entry:</label>
-            <textarea rows="10" cols="120" className="rounded" onChange={(e) => setMessage(e.target.value)} value={message} />
+            <label className="flex">Entry:</label>
+            <textarea placeholder="Dear journal...." rows="10" cols="500" className="rounded" onChange={(e) => setMessage(e.target.value)} value={message} />
 
             <button className="text-white rounded bg-indigo-500 mt-2 hover:bg-indigo-400">Submit Entry</button>
             {error && <div className="error">{error}</div>}
