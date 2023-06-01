@@ -35,6 +35,7 @@ export default function EntryForm() {
             <textarea rows="10" cols="120" className="rounded" onChange={(e) => setMessage(e.target.value)} value={message} />
 
             <button className="text-white rounded bg-indigo-500 mt-2  hover:bg-indigo-400">Submit Entry</button>
+            {error && <div className="error">{error}</div>}
         </form>
     )
 }
