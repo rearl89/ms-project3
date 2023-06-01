@@ -12,10 +12,32 @@ code {
     monospace;
 }
 
+header {
+  background: black;
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Gochi Hand', cursive;
+  font-size: x-large;
+}
+
 .error {
   background-color: red;
   color: white;
   margin-top: 10px;
   border-radius: 5px;
   padding: 5px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
