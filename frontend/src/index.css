@@ -46,3 +46,8 @@ header a {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.date {
+  margin: auto;
+  width: 250px;
+}

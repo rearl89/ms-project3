@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useEntriesContext } from "../../hooks/useEntriesContext"
 //components
 import EntryDetails from "../EntryDetails"
@@ -18,12 +18,12 @@ export default function Home() {
             }
         }
         fetchEntries()
-    }, [])
+    }, [dispatch])
     return ( 
         <div>
             <h1 className="font-bold">Welcome to your personal journal!</h1>
-            <div className="border-2 mt-2.5 mb-2.5">
-                <h4 className="date">Current Date: <CurrentDate /></h4>
+            <div className="date">
+                <h4 className="border-2 rounded mt-2.5 mb-2.5">Current Date: <CurrentDate /></h4>
             </div>
             <div className="flex">
                 <div className="pl-2.5 pr-2.5 pb-2.5">
