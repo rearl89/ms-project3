@@ -5,7 +5,7 @@ export default function Navbar() {
         <header>
             <div className="container">
                 <Link to="/">
-                    <h1>Personal Journal</h1>
+                    <h1>My Personal Journal</h1>
                 </Link>
             </div>
         </header>

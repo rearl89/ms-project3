@@ -21,9 +21,9 @@ export default function Home() {
     }, [])
     return ( 
         <div>
-            <h1>Welcome to your personal journal</h1>
+            <h1 className="font-bold">Welcome to your personal journal!</h1>
             <div className="border-2 mt-2.5 mb-2.5">
-                <h4>Current Date: <CurrentDate /></h4>
+                <h4 className="date">Current Date: <CurrentDate /></h4>
             </div>
             <div className="flex">
                 <div className="pl-2.5 pr-2.5 pb-2.5">

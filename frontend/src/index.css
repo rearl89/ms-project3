@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.date {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 header {
   background: black;
 }
