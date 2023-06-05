@@ -39,9 +39,13 @@ header a {
 
 .logout {
   color: #fff;
+  border: 1px solid #ff0000;
+  border-radius: 10px;
+  padding: 2px;
+  background-color: #ff0000;
   text-decoration: none;
   font-family: 'Gochi Hand', cursive;
-  font-size: large;
+  font-size: small;
 }
 
 .error {
