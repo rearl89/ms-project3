@@ -37,6 +37,13 @@ header a {
   font-size: x-large;
 }
 
+.logout {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Gochi Hand', cursive;
+  font-size: large;
+}
+
 .error {
   background-color: red;
   color: white;
@@ -50,4 +57,30 @@ header a {
 .date {
   margin: auto;
   width: 250px;
+}
+
+nav a {
+  margin-left: 20px;
+  font-size: large;
+}
+
+form.signup, form.login {
+  margin: auto;
+  margin-top: 100px;
+}
+
+form.login h3, .login, button {
+  margin: 10px;
+}
+
+form.signup h3, .signup, button {
+  margin: 10px;
+}
+
+form.login label, form.signup label {
+  margin-left: 10px;
+}
+
+form.login h3, form.signup h3 {
+  font-size: x-large
 }

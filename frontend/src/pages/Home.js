@@ -1,9 +1,9 @@
 import { useEffect } from "react"
-import { useEntriesContext } from "../../hooks/useEntriesContext"
+import { useEntriesContext } from "../hooks/useEntriesContext"
 //components
-import EntryDetails from "../EntryDetails"
-import { CurrentDate } from "../CurrentDate"
-import EntryForm from "../EntryForm"
+import EntryDetails from "../components/EntryDetails"
+import { CurrentDate } from "../components/CurrentDate"
+import EntryForm from "../components/EntryForm"
 
 export default function Home() {
     const {entries, dispatch} = useEntriesContext()
