@@ -84,3 +84,9 @@ form.login label, form.signup label {
 form.login h3, form.signup h3 {
   font-size: x-large
 }
+
+.userEmail {
+  color: #fff;
+  font-family: 'Gochi Hand', cursive;
+  font-size: large;
+}
