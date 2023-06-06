@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { useEntriesContext } from "../hooks/useEntriesContext"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 
 export default function EntryForm() {
     const { dispatch } = useEntriesContext()
+    const { user } = useAuthContext()
 
     const [title, setTitle] = useState('')
     const [message, setMessage] = useState('')
@@ -12,10 +14,14 @@ export default function EntryForm() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
         
         const entry = {title, message}
 
-        const response = await fetch('/entries', {method: 'POST', body: JSON.stringify(entry), headers: {'Content-Type': 'application/json'}})
+        const response = await fetch('/entries', {method: 'POST', body: JSON.stringify(entry), headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${user.token}`}})
         const json = await response.json()
 
         if(!response.ok) {

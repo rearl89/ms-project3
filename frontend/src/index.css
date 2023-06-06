@@ -52,6 +52,8 @@ header a {
   background-color: red;
   color: white;
   margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 5px;
   padding: 5px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

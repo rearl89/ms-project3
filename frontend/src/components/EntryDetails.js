@@ -1,12 +1,18 @@
 // date fns
 import { useEntriesContext } from '../hooks/useEntriesContext';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function EntryDetails({ entry }) {
     const { dispatch } = useEntriesContext()
+    const { user } = useAuthContext()
 
     const handleClick = async () => {
-        const response = await fetch('/entries/' + entry._id, { method: 'DELETE'})
+        if (!user) {
+            return
+        }
+
+        const response = await fetch('/entries/' + entry._id, { method: 'DELETE', headers: { 'Authorization': `Bearer ${user.token}` }})
         const json = await response.json()
 
         if (response.ok) {

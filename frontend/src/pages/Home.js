@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useEntriesContext } from "../hooks/useEntriesContext"
+import { useAuthContext } from '../hooks/useAuthContext'
 //components
 import EntryDetails from "../components/EntryDetails"
 import { CurrentDate } from "../components/CurrentDate"
@@ -7,17 +8,25 @@ import EntryForm from "../components/EntryForm"
 
 export default function Home() {
     const {entries, dispatch} = useEntriesContext()
+    const { user } = useAuthContext()
 
     useEffect(() => {
         async function fetchEntries() {
-            const response = await fetch('/entries') 
+            const response = await fetch('/entries', {
+                headers: {
+                    // separates entries based on user
+                    'Authorization': `Bearer ${user.token}`
+                }
+            }) 
             const json = await response.json()
 
             if (response.ok) {
                 dispatch({type: 'SET_ENTRIES', payload: json})
             }
         }
-        fetchEntries()
+        if (user) {
+           fetchEntries()
+        }
     }, [dispatch])
     return ( 
         <div>

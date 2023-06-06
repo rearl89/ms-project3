@@ -3,8 +3,9 @@ const mongoose = require('mongoose')
 
 // get all entries
 const getEntries = async (req, res) => {
+    const user_id = req.user._id
     // makes the newest entries show at the top
-    const entries = await Entry.find({}).sort({ createdAt: -1 })
+    const entries = await Entry.find({ user_id }).sort({ createdAt: -1 })
     res.status(200).json(entries)
 }
 
@@ -40,7 +41,8 @@ const createEntry = async (req, res) => {
 
     // adds entry to DB
     try {
-        const entry = await Entry.create({ title, message })
+        const user_id = req.user._id
+        const entry = await Entry.create({ title, message, user_id })
         res.status(200).json(entry)
     } catch (error) {
         res.status(400).json({ error: error.message })
