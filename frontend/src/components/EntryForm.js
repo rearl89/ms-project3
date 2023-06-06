@@ -44,7 +44,7 @@ export default function EntryForm() {
             <input placeholder="Ex. Great weekend trip to..." type='text' className="rounded" onChange={(e) => setTitle(e.target.value)} value={title} />
 
             <label className="flex">Entry:</label>
-            <textarea placeholder="Dear journal...." rows="10" cols="1000" className="rounded" onChange={(e) => setMessage(e.target.value)} value={message} />
+            <textarea placeholder="Dear journal...." rows="15" cols="1000" className="rounded" onChange={(e) => setMessage(e.target.value)} value={message} />
 
             <button className="text-white rounded bg-indigo-500 mt-2 hover:bg-indigo-400">Submit Entry</button>
             {error && <div className="error">{error}</div>}
