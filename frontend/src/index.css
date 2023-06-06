@@ -96,3 +96,7 @@ form.login h3, form.signup h3 {
   font-family: 'Gochi Hand', cursive;
   font-size: large;
 }
+
+.entries {
+  width: 100%;
+}
