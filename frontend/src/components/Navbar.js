@@ -5,7 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 export default function Navbar() {
     const { logout } = useLogout()
     const { user } = useAuthContext()
- 
+    // Logs user out when button is clicked
     const handleClick = () => {
         logout()
     }

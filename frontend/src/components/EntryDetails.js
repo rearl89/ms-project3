@@ -6,15 +6,16 @@ import { useAuthContext } from '../hooks/useAuthContext';
 export default function EntryDetails({ entry }) {
     const { dispatch } = useEntriesContext()
     const { user } = useAuthContext()
-
+    
+    // Deletes an entry when button is clicked
     const handleClick = async () => {
         if (!user) {
             return
         }
-
         const response = await fetch('/entries/' + entry._id, { method: 'DELETE', headers: { 'Authorization': `Bearer ${user.token}` }})
         const json = await response.json()
-
+        
+        // Dispatches delete action to update global state
         if (response.ok) {
             dispatch({type: 'DELETE_ENTRY', payload: json})
         }

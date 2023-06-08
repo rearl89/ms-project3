@@ -1,7 +1,7 @@
 import { createContext, useReducer, useEffect } from "react";
 
 export const AuthContext = createContext()
-
+// Updates the state whenever a user logs in or logs out
 export const authReducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN':
@@ -17,7 +17,7 @@ export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, {
         user: null
     })
-
+    // Updates state to login user
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'))
         if (user) {

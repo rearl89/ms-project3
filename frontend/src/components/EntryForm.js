@@ -10,23 +10,24 @@ export default function EntryForm() {
     const [title, setTitle] = useState('')
     const [message, setMessage] = useState('')
     const [error, setError] = useState(null)
-
+    // Adds entry to DB when button is clicked
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        // Error message is giveb if user us not logged in
         if (!user) {
             setError('You must be logged in.')
             return
         }
         
         const entry = {title, message}
-
+        // Posts entries if user has authorization to do so 
         const response = await fetch('/entries', {method: 'POST', body: JSON.stringify(entry), headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${user.token}`}})
         const json = await response.json()
-
+        //Error message is given if not authorized
         if(!response.ok) {
             setError(json.error)
         }
+        // Entry is added if ok
         if(response.ok) {
             setTitle('')
             setMessage('')

@@ -9,17 +9,17 @@ import EntryForm from "../components/EntryForm"
 export default function Home() {
     const {entries, dispatch} = useEntriesContext()
     const { user } = useAuthContext()
-
+    // Fetches entries from the backend
     useEffect(() => {
         async function fetchEntries() {
             const response = await fetch('/entries', {
                 headers: {
-                    // separates entries based on user
+                    // Separates entries based on user
                     'Authorization': `Bearer ${user.token}`
                 }
             }) 
             const json = await response.json()
-
+            // Updates the global entries context state
             if (response.ok) {
                 dispatch({type: 'SET_ENTRIES', payload: json})
             }

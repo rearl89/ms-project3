@@ -2,6 +2,7 @@ import { createContext, useReducer } from 'react'
 
 export const EntriesContext = createContext()
 
+// Updates the state whenever an action is dispatched 
 export const entriesReducer = (state, action) => {
     switch (action.type) {
         case 'SET_ENTRIES':
@@ -26,6 +27,7 @@ export const EntriesContextProvider = ({ children }) => {
  
 
     return (
+        // Wraps the app to be accessed in all components
         <EntriesContext.Provider value={{...state, dispatch}}>
             { children }
         </EntriesContext.Provider>
