@@ -5,6 +5,7 @@ const userRoutes = require("./routes/user");
 require("dotenv").config();
 
 const app = express();
+const PORT = process.env.PORT || 10000;
 
 // middleware
 app.use(express.json());
@@ -25,10 +26,14 @@ mongoose
   })
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(process.env.PORT, () => {
-      console.log(`Listening on port ${process.env.PORT}`);
+    app.listen(PORT, () => {
+      console.log(`Listening on port ${PORT}`);
     });
   })
   .catch((error) => {
     console.error("MongoDB connection error:", error);
   });
+
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
