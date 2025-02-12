@@ -7,6 +7,10 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+app.get("/favicon.ico", (req, res) => {
+  res.status(204).end(); // No Content response
+});
+
 // middleware
 app.use(express.json());
 app.use((req, res, next) => {
