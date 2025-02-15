@@ -7,6 +7,9 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+const cors = require("cors");
+app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+
 app.get("/favicon.ico", (req, res) => {
   res.status(204).end(); // No Content response
 });
